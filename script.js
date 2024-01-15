@@ -1,56 +1,3 @@
-// const button = document.querySelector(".btn");
-// let playerSelection;
-// let computerResult;
-// const para = document.createElement("p");
-// function playerChoice() {
-//   if (button == "Rock") playerSelection = "Rock";
-
-//   if (button == "Paper") playerSelection = "Paper";
-
-//   if (button == "Scissor") playerSelection = "Scissor";
-//   return playerSelection;
-// }
-
-// function computerSelection() {
-//   let getComputerChoice = Math.floor(Math.random() * 3);
-
-//   if (getComputerChoice === 0) computerResult = "Rock";
-//   else if (getComputerChoice === 1) computerResult = "Scissor";
-//   else computerResult = "Paper";
-
-//   return computerResult;
-// }
-// button.addEventListener("click", () =>
-//   playGround(computerSelection, playerChoice)
-// );
-// function playGround(computerSelection, playerChoice) {
-//   if (computerResult == "Rock") {
-//     if (playerSelection == "Paper") {
-//       para.textContent = "You win! Paper covers Rock";
-//     } else if (playerSelection == "scissor") {
-//       para.textContent = "You loss! scissor is crushed by Rock";
-//     } else {
-//       para.textContent = "No winner! paly again";
-//     }
-//   } else if (computerResult == "Paper") {
-//     if (playerSelection == "Rock") {
-//       para.textContent = " You loss ! Rock is covered by paper";
-//     } else if (playerSelection == "scissor") {
-//       para.textContent = "You win! scissor cuts paper";
-//     } else {
-//       para.textContent = "No winner! paly again";
-//     }
-//   } else {
-//     if (playerSelection == "Paper") {
-//       para.textContent = "You loss! scissor cuts paper";
-//     } else if (playerSelection == "Rock") {
-//       para.textContent = "You win! Rock crushes the scissor";
-//     } else {
-//       para.textContent = "No winner! paly again";
-//     }
-//   }
-// }
-
 let computerResult;
 let playerSelection;
 const para = document.createElement("p");
@@ -76,10 +23,19 @@ function game() {
   if (computerSelectionResult == playerSelection) {
     playerSelection = prompt("can you insert your choice again", "Rock");
 
-    console.log(playGround(computerSelection, playerSelection));
+    console.log(playGround(computerSelectionResult, playerSelection));
+  } else if (
+    playerSelection != "rock" ||
+    playerSelection != "paper" ||
+    playerSelection != "scissor"
+  )
+    return (para.textContent =
+      "You entered invalid value, please insert the correct one.");
+  else {
+    console.log(playGround(computerSelectionResult, playerSelection));
   }
-  return playGround(computerSelection, playerSelection);
 }
+
 function playGround(computerSelectionResult, playerSelection) {
   if (computerSelectionResult == "Rock") {
     if (playerSelection == "Paper") {
@@ -110,10 +66,10 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent = "You win! Rock crushes the scissor");
     } else if (playerSelection == "scissor") {
       return (para.textContent = "No winner! paly again, both are scissor");
-    } else {
-      return (para.textContent =
-        "you insert unacceptable value, please insert the correct one inside scissor");
     }
+  } else {
+    return (para.textContent =
+      "you insert unacceptable value, please insert the correct one inside scissor");
   }
   // } else {
   //   return (para.textContent =
