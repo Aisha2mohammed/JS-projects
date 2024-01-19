@@ -45,9 +45,7 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent =
         "you inser WRONG value, please insert the correct one ");
     }
-  }
-
-  if (computerSelectionResult.toLowerCase() === "paper") {
+  } else if (computerSelectionResult.toLowerCase() === "paper") {
     if (playerSelection.toLowerCase() === "scissor") {
       return (para.textContent = "You win! scissor cuts paper");
     } else if (playerSelection.toLowerCase() === "rock") {
@@ -58,9 +56,7 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent =
         "you inser WRONG value, please insert the correct one ");
     }
-  }
-
-  if (computerSelectionResult.toLowerCase() === "scissor") {
+  } else if (computerSelectionResult.toLowerCase() === "scissor") {
     if (playerSelection.toLowerCase() === "rock") {
       return (para.textContent = "You win! rock crushes the scissor ");
     } else if (playerSelection.toLowerCase() === "paper") {
