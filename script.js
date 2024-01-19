@@ -26,7 +26,7 @@ for (let i = 0; i <= 1; i++) {
 function game() {
   if (computerSelectionResult.toLowerCase() === playerSelection.toLowerCase()) {
     playerSelection = prompt("can you insert your choice again", "Rock");
-    console.log("The tie occur , try again !");
+    console.log("The tie occur , can you please try again !");
     console.log(playGround(computerSelectionResult, playerSelection));
   } else {
     console.log(playGround(computerSelectionResult, playerSelection));
@@ -43,7 +43,7 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent = "No winner! paly again. both are rock");
     } else {
       return (para.textContent =
-        "you inser WRONG value, please insert the correct one ");
+        "you insert WRONG value, please insert the correct one ");
     }
   } else if (computerSelectionResult.toLowerCase() === "paper") {
     if (playerSelection.toLowerCase() === "scissor") {
@@ -54,7 +54,7 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent = "No winner! paly again. both are paper");
     } else {
       return (para.textContent =
-        "you inser WRONG value, please insert the correct one ");
+        "you insert WRONG value, please insert the correct one ");
     }
   } else if (computerSelectionResult.toLowerCase() === "scissor") {
     if (playerSelection.toLowerCase() === "rock") {
@@ -65,7 +65,7 @@ function playGround(computerSelectionResult, playerSelection) {
       return (para.textContent = "No winner! paly again. both are scissor");
     } else {
       return (para.textContent =
-        "you inser WRONG value, please insert the correct one ");
+        "you insert WRONG value, please insert the correct one ");
     }
   } else {
     return (para.textContent = "something went wrong  ,please try again! ");
