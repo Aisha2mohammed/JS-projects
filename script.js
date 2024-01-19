@@ -5,9 +5,13 @@ const para = document.createElement("p");
 function computerSelection() {
   let getComputerChoice = Math.floor(Math.random() * 3);
 
-  if (getComputerChoice === 0) computerResult = "Rock";
-  else if (getComputerChoice === 1) computerResult = "Scissor";
-  else computerResult = "Paper";
+  if (getComputerChoice === 0) {
+    computerResult = "Rock";
+  } else if (getComputerChoice === 1) {
+    computerResult = "Scissor";
+  } else {
+    computerResult = "Paper";
+  }
 
   return computerResult;
 }
@@ -20,59 +24,54 @@ for (let i = 0; i <= 1; i++) {
 }
 
 function game() {
-  if (computerSelectionResult == playerSelection) {
+  if (computerSelectionResult.toLowerCase() === playerSelection.toLowerCase()) {
     playerSelection = prompt("can you insert your choice again", "Rock");
-
+    console.log("The tie occur , try again !");
     console.log(playGround(computerSelectionResult, playerSelection));
-  } else if (
-    playerSelection != "rock" ||
-    playerSelection != "paper" ||
-    playerSelection != "scissor"
-  )
-    return (para.textContent =
-      "You entered invalid value, please insert the correct one.");
-  else {
+  } else {
     console.log(playGround(computerSelectionResult, playerSelection));
   }
 }
 
 function playGround(computerSelectionResult, playerSelection) {
-  if (computerSelectionResult == "Rock") {
-    if (playerSelection == "Paper") {
+  if (computerSelectionResult.toLowerCase() === "Rock") {
+    if (playerSelection.toLowerCase() === "paper") {
       return (para.textContent = "You win! Paper covers Rock");
-    } else if (playerSelection == "scissor") {
+    } else if (playerSelection.toLowerCase() === "scissor") {
       return (para.textContent = "You loss! scissor is crushed by Rock.");
-    } else if (playerSelection == "rock") {
+    } else if (playerSelection.toLowerCase() === "rock") {
       return (para.textContent = "No winner! paly again. both are rock");
     } else {
       return (para.textContent =
-        "you insert un acceptable value, please insert the correct one inside rock");
+        "you inser WRONG value, please insert the correct one ");
     }
-  } else if (computerSelectionResult == "Paper") {
-    if (playerSelection == "Rock") {
-      return (para.textContent = "No winner! paly again");
-    } else if (playerSelection == "scissor") {
+  }
+
+  if (computerSelectionResult.toLowerCase() === "paper") {
+    if (playerSelection.toLowerCase() === "scissor") {
       return (para.textContent = "You win! scissor cuts paper");
-    } else if (playerSelection == "paper") {
-      return (para.textContent = "No winner! paly again ,both are paper ");
+    } else if (playerSelection.toLowerCase() === "rock") {
+      return (para.textContent = "You loss! Rock is covered by paper.");
+    } else if (playerSelection.toLowerCase() === "paper") {
+      return (para.textContent = "No winner! paly again. both are paper");
     } else {
       return (para.textContent =
-        "you insert un acceptable value, please insert the correct one inside paper");
+        "you inser WRONG value, please insert the correct one ");
     }
-  } else if (computerSelectionResult == "scissor") {
-    if (playerSelection == "Paper") {
-      return (para.textContent = "You loss! scissor cuts paper");
-    } else if (playerSelection == "Rock") {
-      return (para.textContent = "You win! Rock crushes the scissor");
-    } else if (playerSelection == "scissor") {
-      return (para.textContent = "No winner! paly again, both are scissor");
+  }
+
+  if (computerSelectionResult.toLowerCase() === "scissor") {
+    if (playerSelection.toLowerCase() === "rock") {
+      return (para.textContent = "You win! rock crushes the scissor ");
+    } else if (playerSelection.toLowerCase() === "paper") {
+      return (para.textContent = "You loss!paper is cut off by scissor.");
+    } else if (playerSelection.toLowerCase() === "scissor") {
+      return (para.textContent = "No winner! paly again. both are scissor");
+    } else {
+      return (para.textContent =
+        "you inser WRONG value, please insert the correct one ");
     }
   } else {
-    return (para.textContent =
-      "you insert unacceptable value, please insert the correct one inside scissor");
+    return (para.textContent = "something went wrong  ,please try again! ");
   }
-  // } else {
-  //   return (para.textContent =
-  //     "the computer is not responding  , please try again!");
-  // }
 }
