@@ -1,6 +1,22 @@
 let computerResult;
 let playerSelection;
-const para = document.createElement("p");
+let playerCount;
+let computerCount;
+let count1 = 0;
+let count2 = 0;
+let roundCount = 0;
+
+const span2 = document.querySelector(".span2");
+const span1 = document.querySelector(".span1");
+const para = document.querySelector(".content");
+const p1 = document.querySelector(".content-1");
+const p2 = document.querySelector(".content-2");
+const btn = document.querySelector("button");
+const buttons = document.querySelectorAll("button");
+const pCon = document.querySelectorAll("p");
+const div = document.querySelector("div");
+const smallDiv1 = document.querySelector("small-div1");
+const smallDiv2 = document.querySelector("small-div2");
 
 function computerSelection() {
   let getComputerChoice = Math.floor(Math.random() * 3);
@@ -12,62 +28,125 @@ function computerSelection() {
   } else {
     computerResult = "Paper";
   }
-
   return computerResult;
 }
 let computerSelectionResult = computerSelection();
 
-for (let i = 0; i <= 1; i++) {
-  playerSelection = prompt("enter your defender choice", "Rock");
-
-  game();
+buttons.forEach(game);
+function game(btn) {
+  btn.addEventListener("click", function (event) {
+    roundCount++;
+    setPlay(event.target.value);
+  });
 }
-
-function game() {
-  if (computerSelectionResult.toLowerCase() === playerSelection.toLowerCase()) {
-    playerSelection = prompt("can you insert your choice again", "Rock");
-    console.log("The tie occur , can you please try again !");
-    console.log(playGround(computerSelectionResult, playerSelection));
+function setPlay(playerSelection) {
+  if (roundCount <= 5) {
+    playRound(computerSelectionResult, playerSelection);
   } else {
-    console.log(playGround(computerSelectionResult, playerSelection));
+    const finishes = document.createElement("p");
+    const winner = document.createElement("p");
+    const playAgainButton = document.createElement("button");
+    winner.setAttribute("class", "winner");
+    finishes.setAttribute("class", "finish");
+    para.textContent = "";
+
+    if (count1 > count2)
+      winner.textContent = `Congratulation! You are the winner.`;
+    else if (count1 < count2)
+      winner.textContent = `You loss. Try again to be the winner.`;
+    else winner.textContent = `No winner! Try again.`;
+    finishes.textContent = " Game Over!";
+    playAgainButton.textContent = "Play again";
+    playAgainButton.setAttribute("class", "play-button");
+    playAgainButton.style.cssText =
+      "background-color: rgb(239, 232, 187); color:rgb(98, 117, 98); border:none; padding:9px; border-radius:6px; font-size:15px;";
+
+    div.appendChild(finishes);
+    div.appendChild(winner);
+    div.appendChild(playAgainButton);
+    playAgainButton.addEventListener("click", function () {
+      span1.textContent = "";
+      span2.textContent = "";
+      p1.textContent = "";
+      p2.textContent = "";
+      count1 = 0;
+      count2 = 0;
+      finishes.textContent = "";
+      winner.textContent = "";
+      playAgainButton.textContent = "";
+      playAgainButton.remove();
+      playAgainButton.style.cssText = "";
+      roundCount = "";
+    });
   }
-}
+  function playRound(computerSelectionResult, playerSelection) {
+    const comSelect = document.createElement("p");
+    const playerSelect = document.createElement("p");
 
-function playGround(computerSelectionResult, playerSelection) {
-  if (computerSelectionResult.toLowerCase() === "Rock") {
-    if (playerSelection.toLowerCase() === "paper") {
-      return (para.textContent = "You win! Paper covers Rock");
-    } else if (playerSelection.toLowerCase() === "scissor") {
-      return (para.textContent = "You loss! scissor is crushed by Rock.");
-    } else if (playerSelection.toLowerCase() === "rock") {
-      return (para.textContent = "No winner! paly again. both are rock");
-    } else {
-      return (para.textContent =
-        "you insert WRONG value, please insert the correct one ");
+    p1.textContent = `You : `;
+    p2.textContent = `computer : `;
+    // comSelect.textContent = `Computer select : ${computerSelectionResult.toUpperCase()}`;
+    // playerSelect.textContent = `You select : ${playerSelection.toUpperCase()}`;
+    // smallDiv1.appendChild(playerSelect);
+    // smallDiv2.appendChild(comSelect);
+    para.textContent = "";
+
+    if (computerSelectionResult === "Rock") {
+      if (playerSelection.toLowerCase() === "paper") {
+        para.textContent = "You win! Paper covers Rock";
+      } else if (playerSelection.toLowerCase() === "scissor") {
+        para.textContent = "You loss! scissor is crushed by Rock.";
+      } else if (playerSelection.toLowerCase() === "rock") {
+        para.textContent = "A tie! paly again. both are rock";
+      } else {
+        para.textContent =
+          "you insert WRONG value, please insert the correct one ";
+      }
     }
-  } else if (computerSelectionResult.toLowerCase() === "paper") {
-    if (playerSelection.toLowerCase() === "scissor") {
-      return (para.textContent = "You win! scissor cuts paper");
-    } else if (playerSelection.toLowerCase() === "rock") {
-      return (para.textContent = "You loss! Rock is covered by paper.");
-    } else if (playerSelection.toLowerCase() === "paper") {
-      return (para.textContent = "No winner! paly again. both are paper");
-    } else {
-      return (para.textContent =
-        "you insert WRONG value, please insert the correct one ");
+
+    if (computerSelectionResult === "Paper") {
+      if (playerSelection.toLowerCase() === "scissor") {
+        para.textContent = "You win! scissor cuts paper";
+      } else if (playerSelection.toLowerCase() === "rock") {
+        para.textContent = "You loss! Rock is covered by paper.";
+      } else if (playerSelection.toLowerCase() === "paper") {
+        para.textContent = "A tie! paly again. both are paper";
+      } else {
+        para.textContent =
+          "you insert WRONG value, please insert the correct one ";
+      }
     }
-  } else if (computerSelectionResult.toLowerCase() === "scissor") {
-    if (playerSelection.toLowerCase() === "rock") {
-      return (para.textContent = "You win! rock crushes the scissor ");
-    } else if (playerSelection.toLowerCase() === "paper") {
-      return (para.textContent = "You loss!paper is cut off by scissor.");
-    } else if (playerSelection.toLowerCase() === "scissor") {
-      return (para.textContent = "No winner! paly again. both are scissor");
-    } else {
-      return (para.textContent =
-        "you insert WRONG value, please insert the correct one ");
+    if (computerSelectionResult === "Scissor") {
+      if (playerSelection.toLowerCase() === "rock") {
+        para.textContent = "You win! rock crushes the scissor ";
+      } else if (playerSelection.toLowerCase() === "paper") {
+        para.textContent = "You loss!paper is cut off by scissor.";
+      } else if (playerSelection.toLowerCase() === "scissor") {
+        para.textContent = "A tie! play again. both are scissor";
+      } else {
+        para.textContent =
+          "you insert WRONG value, please insert the correct one ";
+      }
     }
-  } else {
-    return (para.textContent = "something went wrong  ,please try again! ");
+
+    if (
+      para.textContent === "You win! rock crushes the scissor " ||
+      para.textContent === "You win! scissor cuts paper" ||
+      para.textContent === "You win! Paper covers Rock"
+    ) {
+      count1++;
+      span1.textContent = `${count1}`;
+    }
+    if (
+      para.textContent === "You loss! scissor is crushed by Rock." ||
+      para.textContent === "You loss! Rock is covered by paper." ||
+      para.textContent === "You loss!paper is cut off by scissor."
+    ) {
+      count2++;
+      span2.textContent = `${count2}`;
+    }
+    pCon.textContent = `You select : ${computerSelectionResult.toUpperCase()}`;
+    pCon.textContent = `Computer select : ${computerSelectionResult.toUpperCase()}`;
+    // div.appendChild(para);
   }
 }

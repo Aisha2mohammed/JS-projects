@@ -4,36 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-paper-scissor</title>
-    <!-- <script src="projects/script.js"></script> -->
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 
     <style>
       body {
-        background-color: rgb(16, 16, 56);
-        height: 100vh;
+        background-color: rgb(194, 213, 194);
+
+        margin: 0;
+      }
+      h1 {
+        text-align: center;
+        padding: 40px;
+        color: rgb(26, 55, 26);
+      }
+      .container {
+        width: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        padding: 35px;
+        background-color: rgb(98, 117, 98);
+        color: rgb(239, 232, 187);
+        border-radius: 10px;
+        border: none;
+        font-size: 24px;
+        font-family: serif;
+        font-weight: 500;
+      }
+      .btn-content {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
         gap: 25px;
+        /* display: inline; */
+        text-align: center;
+        margin: 30px;
       }
-      .btn {
-        padding: 50px;
-        background-color: rgb(227, 216, 149);
-        color: rgb(16, 16, 56);
-        border-radius: 50%;
-        border: none;
-        font-size: 20px;
+      .content1,
+      .content2 {
+        display: inline;
       }
       .btn hover,
       .btn active {
         background-color: rgb(244, 121, 142);
       }
+      .small {
+        width: 430px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .small-div {
+        display: flex;
+        gap: 5px;
+        font-size: 22px;
+
+        color: rgb(26, 55, 26);
+      }
+      span {
+        margin-top: 22px;
+      }
+
+      .content,
+      .winner,
+      .finish {
+        color: rgb(26, 55, 26);
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+      .finish {
+        font-weight: 800;
+      }
+      .content {
+        color: rgb(98, 117, 98);
+      }
     </style>
   </head>
   <body>
-    <button class="btn">Rock</button>
-    <button class="btn">Paper</button>
-    <button class="btn">scissor</button>
+    <h1>ROCK PAPER SCISSOR</h1>
+    <div class="container">
+      <div class="btn-content">
+        <button value="rock" class="btn">Rock</button>
+        <button value="paper" class="btn">Paper</button>
+        <button value="scissor" class="btn">scissor</button>
+      </div>
+      <h4>Play the</h4>
+      <div class="small">
+        <div class="small-div1 small-div">
+          <p class="content-1"></p>
+          <span class="span1"></span>
+        </div>
+        <div class="small-div2 small-div">
+          <p class="content-2"></p>
+          <span class="span2"></span>
+        </div>
+      </div>
+      <p class="content"></p>
+    </div>
   </body>
 </html>
