@@ -15,6 +15,7 @@ const btn = document.querySelector("button");
 const buttons = document.querySelectorAll("button");
 const pCon = document.querySelectorAll("p");
 const div = document.querySelector("div");
+
 const smallDiv1 = document.querySelector("small-div1");
 const smallDiv2 = document.querySelector("small-div2");
 
@@ -34,7 +35,7 @@ let computerSelectionResult = computerSelection();
 
 buttons.forEach(game);
 function game(btn) {
-  btn.addEventListener("click", function (event) {
+  btn.addEventListener("click", function handle(event) {
     roundCount++;
     setPlay(event.target.value);
   });
@@ -48,6 +49,7 @@ function setPlay(playerSelection) {
     const playAgainButton = document.createElement("button");
     winner.setAttribute("class", "winner");
     finishes.setAttribute("class", "finish");
+
     para.textContent = "";
 
     if (count1 > count2)
@@ -78,17 +80,13 @@ function setPlay(playerSelection) {
       playAgainButton.style.cssText = "";
       roundCount = "";
     });
+    // btn.removeEventListener("click", handle);
   }
   function playRound(computerSelectionResult, playerSelection) {
-    const comSelect = document.createElement("p");
-    const playerSelect = document.createElement("p");
-
+    span1.textContent = `${count1}`;
+    span2.textContent = `${count2}`;
     p1.textContent = `You : `;
     p2.textContent = `computer : `;
-    // comSelect.textContent = `Computer select : ${computerSelectionResult.toUpperCase()}`;
-    // playerSelect.textContent = `You select : ${playerSelection.toUpperCase()}`;
-    // smallDiv1.appendChild(playerSelect);
-    // smallDiv2.appendChild(comSelect);
     para.textContent = "";
 
     if (computerSelectionResult === "Rock") {
@@ -145,6 +143,17 @@ function setPlay(playerSelection) {
       count2++;
       span2.textContent = `${count2}`;
     }
+    // if (
+    //   para.textContent === "A tie! play again. both are scissor" ||
+    //   para.textContent === "A tie! paly again. both are paper" ||
+    //   para.textContent === "A tie! paly again. both are rock"
+    // ) {
+    //   count1 = 0;
+    //   count2 = 0;
+
+    //   span1.textContent = `${count1}`;
+    //   span2.textContent = `${count2}`;
+    // }
     pCon.textContent = `You select : ${computerSelectionResult.toUpperCase()}`;
     pCon.textContent = `Computer select : ${computerSelectionResult.toUpperCase()}`;
     // div.appendChild(para);

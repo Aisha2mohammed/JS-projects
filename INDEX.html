@@ -19,7 +19,6 @@
         color: rgb(26, 55, 26);
       }
       .container {
-        width: 1000px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -35,18 +34,20 @@
         font-family: serif;
         font-weight: 500;
       }
-      .btn-content {
+      .btn-content1 {
+        width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 25px;
-        /* display: inline; */
-        text-align: center;
+        gap: 35px;
         margin: 30px;
       }
+
       .content1,
       .content2 {
         display: inline;
+        color: rgb(26, 55, 26);
+        padding-top: 15px;
       }
       .btn hover,
       .btn active {
@@ -77,7 +78,7 @@
         font-family: sans-serif;
       }
       .finish {
-        font-weight: 800;
+        font-weight: bold;
       }
       .content {
         color: rgb(98, 117, 98);
@@ -87,12 +88,13 @@
   <body>
     <h1>ROCK PAPER SCISSOR</h1>
     <div class="container">
-      <div class="btn-content">
+      <div class="btn-content1">
         <button value="rock" class="btn">Rock</button>
         <button value="paper" class="btn">Paper</button>
         <button value="scissor" class="btn">scissor</button>
       </div>
-      <h4>Play the</h4>
+      <div class="btn-content2"></div>
+
       <div class="small">
         <div class="small-div1 small-div">
           <p class="content-1"></p>
