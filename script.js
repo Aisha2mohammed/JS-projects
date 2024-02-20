@@ -76,9 +76,8 @@ function setPlay(playerSelection) {
       p2.textContent = "";
       count1 = 0;
       count2 = 0;
-      finishes.textContent = "";
-      winner.textContent = "";
-      playAgainButton.textContent = "";
+      finishes.remove();
+      winner.remove();
       playAgainButton.remove();
       playAgainButton.style.cssText = "";
       roundCount = "";
@@ -97,7 +96,7 @@ function setPlay(playerSelection) {
     span2.textContent = `${count2}`;
     p1.textContent = `You : `;
     p2.textContent = `computer : `;
-    para.textContent = "";
+    para.remove();
 
     if (computerSelectionResult === "Rock") {
       if (playerSelection.toLowerCase() === "paper") {
