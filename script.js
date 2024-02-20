@@ -64,7 +64,7 @@ function setPlay(playerSelection) {
     playAgainButton.textContent = "Play again";
     playAgainButton.setAttribute("class", "play-button");
     playAgainButton.style.cssText =
-      "background-color: rgb(239, 232, 187); color:rgb(98, 117, 98); border:none; padding:9px; border-radius:6px; font-size:15px;";
+      "background-color: rgb(239, 232, 187); font-weight:700; color:rgb(98, 117, 98); border:none; padding:9px; border-radius:6px; font-size:15px;";
 
     div.appendChild(finishes);
     div.appendChild(winner);
@@ -82,6 +82,8 @@ function setPlay(playerSelection) {
       playAgainButton.remove();
       playAgainButton.style.cssText = "";
       roundCount = "";
+      comSelect.textContent = "";
+      playerSelect.textContent = "";
     });
     // btn.removeEventListener("click", handle);
   }
