@@ -15,6 +15,9 @@ const btn = document.querySelector("button");
 const buttons = document.querySelectorAll("button");
 const pCon = document.querySelectorAll("p");
 const div = document.querySelector("div");
+const buttonContent = document.querySelector(".btn-content2");
+const comSelect = document.createElement("p");
+const playerSelect = document.createElement("p");
 
 const smallDiv1 = document.querySelector("small-div1");
 const smallDiv2 = document.querySelector("small-div2");
@@ -83,6 +86,11 @@ function setPlay(playerSelection) {
     // btn.removeEventListener("click", handle);
   }
   function playRound(computerSelectionResult, playerSelection) {
+    comSelect.textContent = `Computer select :${computerSelectionResult.toUpperCase()}`;
+    playerSelect.textContent = `You select : ${playerSelection.toUpperCase()}`;
+    buttonContent.appendChild(playerSelect);
+    buttonContent.appendChild(comSelect);
+
     span1.textContent = `${count1}`;
     span2.textContent = `${count2}`;
     p1.textContent = `You : `;
