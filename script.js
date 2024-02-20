@@ -53,8 +53,6 @@ function setPlay(playerSelection) {
     winner.setAttribute("class", "winner");
     finishes.setAttribute("class", "finish");
 
-    para.textContent = "";
-
     if (count1 > count2)
       winner.textContent = `Congratulation! You are the winner.`;
     else if (count1 < count2)
@@ -84,7 +82,6 @@ function setPlay(playerSelection) {
       comSelect.textContent = "";
       playerSelect.textContent = "";
     });
-    // btn.removeEventListener("click", handle);
   }
   function playRound(computerSelectionResult, playerSelection) {
     comSelect.textContent = `Computer select :${computerSelectionResult.toUpperCase()}`;
@@ -152,19 +149,5 @@ function setPlay(playerSelection) {
       count2++;
       span2.textContent = `${count2}`;
     }
-    // if (
-    //   para.textContent === "A tie! play again. both are scissor" ||
-    //   para.textContent === "A tie! paly again. both are paper" ||
-    //   para.textContent === "A tie! paly again. both are rock"
-    // ) {
-    //   count1 = 0;
-    //   count2 = 0;
-
-    //   span1.textContent = `${count1}`;
-    //   span2.textContent = `${count2}`;
-    // }
-    pCon.textContent = `You select : ${computerSelectionResult.toUpperCase()}`;
-    pCon.textContent = `Computer select : ${computerSelectionResult.toUpperCase()}`;
-    // div.appendChild(para);
   }
 }
