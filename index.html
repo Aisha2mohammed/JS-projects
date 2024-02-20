@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-paper-scissor</title>
+
+    <script src="script.js" defer></script>
+
+    <style>
+      body {
+        background-color: rgb(194, 213, 194);
+
+        margin: 0;
+      }
+      h1 {
+        text-align: center;
+        padding: 40px;
+        color: rgb(26, 55, 26);
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        padding: 35px;
+        background-color: rgb(98, 117, 98);
+        color: rgb(239, 232, 187);
+        border-radius: 10px;
+        border: none;
+        font-size: 24px;
+        font-family: serif;
+        font-weight: 500;
+      }
+      .btn-content1 {
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        margin: 30px;
+      }
+
+      .btn-content2 {
+        width: 450px;
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        color: rgb(26, 55, 26);
+        padding-top: 15px;
+        justify-content: space-between;
+      }
+      .btn:hover {
+        background-color: rgb(93, 103, 93);
+      }
+      .btn:active {
+        background-color: rgb(58, 91, 58);
+      }
+      .play-button:hover {
+        background-color: rgb(242, 228, 134);
+      }
+      .play-button:active {
+        background-color: rgb(225, 209, 108);
+      }
+      .content1,
+      .content2 {
+        display: inline;
+        color: rgb(26, 55, 26);
+        padding-top: 15px;
+      }
+
+      .small {
+        width: 430px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .small-div {
+        display: flex;
+        gap: 5px;
+        font-size: 22px;
+
+        color: rgb(26, 55, 26);
+      }
+      span {
+        margin-top: 22px;
+      }
+
+      .content,
+      .winner,
+      .finish {
+        color: rgb(26, 55, 26);
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+      .finish {
+        font-weight: bold;
+        margin-top: 30px;
+      }
+      .content {
+        color: rgb(98, 117, 98);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ROCK PAPER SCISSOR</h1>
+    <div class="container">
+      <div class="btn-content1">
+        <button value="rock" class="btn">Rock</button>
+        <button value="paper" class="btn">Paper</button>
+        <button value="scissor" class="btn">scissor</button>
+      </div>
+      <div class="btn-content2"></div>
+
+      <div class="small">
+        <div class="small-div1 small-div">
+          <p class="content-1"></p>
+          <span class="span1"></span>
+        </div>
+        <div class="small-div2 small-div">
+          <p class="content-2"></p>
+          <span class="span2"></span>
+        </div>
+      </div>
+      <p class="content"></p>
+    </div>
+  </body>
+</html>
